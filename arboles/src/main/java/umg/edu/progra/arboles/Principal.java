@@ -79,6 +79,17 @@ public class Principal {
         arbol.imprimirArbol();
         System.out.println("Tamanio final: " + arbol.tamanio());
         System.out.println("Altura final:  " + arbol.altura());
+        
+     // ============================================================
+        // EJECUCIÓN DE LOS PROBLEMAS DE LA TAREA
+        // ============================================================
+        System.out.println("\n==================================================");
+        System.out.println("        EVALUACIÓN DE PROBLEMAS DE LA TAREA       ");
+        System.out.println("==================================================");
+
+        System.out.println("\n--- Prueba Problema 1: Contar Nodos ---");
+        System.out.println("Tamanio por atributo: " + arbol.tamanio());
+        System.out.println("Tamanio recursivo:    " + arbol.contarNodos());
 
         /*
          * Ejercicios

@@ -315,6 +315,20 @@ public class ArbolBinarioBusqueda {
             this.valor = valor;
         }
     }
+    
+ // ============================================================
+    // SOLUCIÓN TAREA: PROBLEMA 1
+    // ============================================================
+    public int contarNodos() {
+        return contarNodosRecursivo(raiz);
+    }
+
+    private int contarNodosRecursivo(Nodo nodo) {
+        if (nodo == null) {
+            return 0; 
+        }
+        return 1 + contarNodosRecursivo(nodo.izquierdo) + contarNodosRecursivo(nodo.derecho);
+    }
 
     private static class ColaNodos {
         private NodoCola frente;
