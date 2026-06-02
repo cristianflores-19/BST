@@ -97,6 +97,17 @@ public class Principal {
         ArbolBinarioBusqueda arbolDesbalanceado = new ArbolBinarioBusqueda();
         for (int i = 1; i <= 5; i++) arbolDesbalanceado.insertar(i);
         System.out.println("¿El arbol (1->2->3->4->5) esta balanceado?: " + arbolDesbalanceado.esBalanceado());
+        
+        System.out.println("\n--- Prueba Problema 3: Validar BST ---");
+        System.out.println("¿El arbol original es un BST valido?: " + arbol.esBSTValido());
+
+        // Creamos un árbol alternativo y lo modificamos a la fuerza para romperlo
+        ArbolBinarioBusqueda arbolRoto = new ArbolBinarioBusqueda();
+        arbolRoto.insertar(50);
+        arbolRoto.insertar(30);
+        arbolRoto.insertar(70);
+        arbolRoto.romperArbolParaPrueba(); // Forzamos el error
+        System.out.println("¿El arbol modificado manualmente es un BST valido?: " + arbolRoto.esBSTValido());
 
         /*
          * Ejercicios

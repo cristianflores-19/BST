@@ -351,6 +351,36 @@ public class ArbolBinarioBusqueda {
 
         return esBalanceadoRecursivo(nodo.izquierdo) && esBalanceadoRecursivo(nodo.derecho);
     }
+    
+ // ============================================================
+    // SOLUCIÓN TAREA: PROBLEMA 3
+    // ============================================================
+    public boolean esBSTValido() {
+        return esBSTValidoRecursivo(raiz, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private boolean esBSTValidoRecursivo(Nodo nodo, int min, int max) {
+        if (nodo == null) {
+            return true; // Un nodo nulo no rompe la propiedad del BST
+        }
+
+        // Si el dato actual viola los límites establecidos
+        if (nodo.dato <= min || nodo.dato >= max) {
+            return false;
+        }
+
+        // El hijo izquierdo se limita con el valor actual como máximo
+        // El hijo derecho se limita con el valor actual como mínimo
+        return esBSTValidoRecursivo(nodo.izquierdo, min, nodo.dato) &&
+               esBSTValidoRecursivo(nodo.derecho, nodo.dato, max);
+    }
+
+    public void romperArbolParaPrueba() {
+        if (raiz != null && raiz.izquierdo != null) {
+            // Alteramos un dato directamente saltándonos las reglas del BST
+            raiz.izquierdo.dato = 999; 
+        }
+    }
 
     private static class ColaNodos {
         private NodoCola frente;
