@@ -329,6 +329,28 @@ public class ArbolBinarioBusqueda {
         }
         return 1 + contarNodosRecursivo(nodo.izquierdo) + contarNodosRecursivo(nodo.derecho);
     }
+    
+ // ============================================================
+    // SOLUCIÓN TAREA: PROBLEMA 2
+    // ============================================================
+    public boolean esBalanceado() {
+        return esBalanceadoRecursivo(raiz);
+    }
+
+    private boolean esBalanceadoRecursivo(Nodo nodo) {
+        if (nodo == null) {
+            return true; 
+        }
+
+        int alturaIzq = alturaRecursiva(nodo.izquierdo);
+        int alturaDer = alturaRecursiva(nodo.derecho);
+
+        if (Math.abs(alturaIzq - alturaDer) > 1) {
+            return false;
+        }
+
+        return esBalanceadoRecursivo(nodo.izquierdo) && esBalanceadoRecursivo(nodo.derecho);
+    }
 
     private static class ColaNodos {
         private NodoCola frente;

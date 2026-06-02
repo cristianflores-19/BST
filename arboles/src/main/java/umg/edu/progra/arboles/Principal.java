@@ -90,6 +90,13 @@ public class Principal {
         System.out.println("\n--- Prueba Problema 1: Contar Nodos ---");
         System.out.println("Tamanio por atributo: " + arbol.tamanio());
         System.out.println("Tamanio recursivo:    " + arbol.contarNodos());
+        System.out.println("\n--- Prueba Problema 2: Es Balanceado ---");
+        System.out.println("¿El arbol inicial esta balanceado?: " + arbol.esBalanceado());
+
+        // Caso desbalanceado requerido por la guía (1->2->3->4->5)
+        ArbolBinarioBusqueda arbolDesbalanceado = new ArbolBinarioBusqueda();
+        for (int i = 1; i <= 5; i++) arbolDesbalanceado.insertar(i);
+        System.out.println("¿El arbol (1->2->3->4->5) esta balanceado?: " + arbolDesbalanceado.esBalanceado());
 
         /*
          * Ejercicios
