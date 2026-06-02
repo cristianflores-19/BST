@@ -108,6 +108,33 @@ public class Principal {
         arbolRoto.insertar(70);
         arbolRoto.romperArbolParaPrueba(); // Forzamos el error
         System.out.println("¿El arbol modificado manualmente es un BST valido?: " + arbolRoto.esBSTValido());
+        
+        System.out.println("\n--- Prueba Problema 4: Ancestro Comun Mas Bajo (LCA) ---");
+        // Probamos con nodos que sí sobrevivieron a la eliminación en el árbol actual
+        System.out.println("LCA de 10 y 40 (Debe ser 40): " + arbol.ancestroComunMasBajo(10, 40));
+        System.out.println("LCA de 70 y 80 (Debe ser 70): " + arbol.ancestroComunMasBajo(70, 80));
+        System.out.println("LCA de 10 y 80 (Debe ser 60): " + arbol.ancestroComunMasBajo(10, 80));
+        
+        try {
+            // El 30 ya fue eliminado previamente, por lo que debe disparar la excepción
+            arbol.ancestroComunMasBajo(10, 30); 
+        } catch (IllegalArgumentException e) {
+            System.out.println("Excepcion controlada exitosamente: " + e.getMessage());
+        }
+        
+     // ============================================================
+        // PRUEBA PROBLEMA 5: INVERTIR (AL FINAL DE TODO)
+        // ============================================================
+        System.out.println("\n--- Prueba Problema 5: Espejo (Invertir) ---");
+        System.out.print("InOrden antes de invertir (ordenado): ");
+        arbol.inOrden();
+        
+        arbol.invertir(); // Aplicamos el efecto espejo
+        
+        System.out.print("InOrden despues de invertir (debe quedar invertido): ");
+        arbol.inOrden();
+        System.out.println("Representacion visual del arbol invertido:");
+        arbol.imprimirArbol();
 
         /*
          * Ejercicios

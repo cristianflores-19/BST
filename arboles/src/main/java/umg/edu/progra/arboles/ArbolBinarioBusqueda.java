@@ -381,6 +381,59 @@ public class ArbolBinarioBusqueda {
             raiz.izquierdo.dato = 999; 
         }
     }
+    
+ // ============================================================
+    // SOLUCIÓN TAREA: PROBLEMA 4
+    // ============================================================
+    public int ancestroComunMasBajo(int a, int b) {
+        // Validación obligatoria según las instrucciones de la guía
+        if (!contiene(a) || !contiene(b)) {
+            throw new IllegalArgumentException("Uno o ambos valores no existen en el arbol.");
+        }
+        Nodo resultado = lcaRecursivo(raiz, a, b);
+        return resultado.dato;
+    }
+
+    private Nodo lcaRecursivo(Nodo nodo, int a, int b) {
+        if (nodo == null) {
+            return null;
+        }
+
+        // Si ambos valores son menores, el LCA está en la izquierda
+        if (a < nodo.dato && b < nodo.dato) {
+            return lcaRecursivo(nodo.izquierdo, a, b);
+        }
+
+        // Si ambos valores son mayores, el LCA está en la derecha
+        if (a > nodo.dato && b > nodo.dato) {
+            return lcaRecursivo(nodo.derecho, a, b);
+        }
+
+        // Si se dividen o uno es igual al nodo actual, este es el LCA
+        return nodo;
+    }
+    
+ // ============================================================
+    // SOLUCIÓN TAREA: PROBLEMA 5
+    // ============================================================
+    public void invertir() {
+        invertirRecursivo(raiz);
+    }
+
+    private void invertirRecursivo(Nodo nodo) {
+        if (nodo == null) {
+            return; // Caso base: si llegamos a un extremo nulo, regresamos
+        }
+
+        // Intercambio clásico de punteros usando un nodo temporal
+        Nodo temporal = nodo.izquierdo;
+        nodo.izquierdo = nodo.derecho;
+        nodo.derecho = temporal;
+
+        // Continuamos invirtiendo los hijos de forma recursiva
+        invertirRecursivo(nodo.izquierdo);
+        invertirRecursivo(nodo.derecho);
+    }
 
     private static class ColaNodos {
         private NodoCola frente;
